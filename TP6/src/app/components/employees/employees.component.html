@@ -1,0 +1,60 @@
+<form (ngSubmit)="insertData()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      name="name"
+      class="form-control"
+      [(ngModel)]="employee.nom"
+    />
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      type="text"
+      name="email"
+      class="form-control"
+      [(ngModel)]="employee.email"
+    />
+  </div>
+  <div class="form-group">
+    <label for="cin">cin</label>
+    <input
+      type="text"
+      name="cin"
+      class="form-control"
+      [(ngModel)]="employee.cin"
+    />
+  </div>
+  <button class="btn btn-dark btn-sm mt-4">Valider</button>
+</form>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">cin</th>
+      <th scope="col">email</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employees">
+      <th scope="row">{{ emp.id }}</th>
+      <td>{{ emp.nom }}</td>
+      <td>{{ emp.email }}</td>
+      <td>{{ emp.cin }}</td>
+      <td>
+        <button class="btn btn-danger btn-sm" (click)="deleteData(emp._id)">
+          Supprimer
+        </button>
+        <button
+          class="btn btn-warning btn-sm mx-2"
+          [routerLink]="['/employee/', emp._id]"
+        >
+          Mise à jour
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

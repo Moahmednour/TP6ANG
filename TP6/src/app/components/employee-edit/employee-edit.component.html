@@ -1,0 +1,18 @@
+<form (ngSubmit)="updateEmployee()">
+<div class="form-group">
+<label for="name">Name</label>
+<input type="text" name="name" class="form-control"
+[(ngModel)]="employee.nom">
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input type="text" name="email" class="form-control"
+[(ngModel)]="employee.email">
+</div>
+<div class="form-group">
+<label for="cin">cin</label>
+<input type="text" name="cin" class="form-control"
+[(ngModel)]="employee.cin">
+</div>
+<button class="btn btn-dark btn-sm mt-4">Mise à jour</button>
+</form>
